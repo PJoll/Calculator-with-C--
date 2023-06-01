@@ -31,7 +31,7 @@ function CalculatorPanel(props) {
 
   return(
      <div className="calculator-grid-container">
-        <CalculatorDisplay/>    
+        <CalculatorDisplay text={props.result}/>    
         {calc_buttons}
         </div>
   );
