@@ -65,7 +65,13 @@ class Calculator extends React.Component{
             operation: "",
         })
     }
-    clearHandler(){}
+    clearHandler(){
+        this.setState({
+            result: "",
+            numbers: ["",""],
+            numberIdx: 0,
+        });
+    }
     equalHandler(){
         if(this.state.numbers[0] === "" || this.state.numbers[1] === ""){
             return;
