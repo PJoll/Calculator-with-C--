@@ -23,7 +23,13 @@ class Calculator extends React.Component{
             numbers: newNumbers,
         })
     }
-    dotHandler(){}
+    dotHandler(){
+        const newNumber = this.state.numbers[this.state.numberIdx] + ".";
+        if(isNaN(newNumber)){
+            return;
+        }
+        this.updateNumber(newNumber);
+    }
     clearHandler(){}
     equalHandler(){}
     render(){
