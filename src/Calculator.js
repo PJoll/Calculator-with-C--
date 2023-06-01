@@ -55,8 +55,29 @@ class Calculator extends React.Component{
         }
         this.updateNumber(newNumber);
     }
+    setResult(result){
+        const newNumbers = [result, ""];
+        const newNumberIdx = 0;
+        this.setState({
+            result:newNumbers[newNumberIdx],
+            numbers: newNumbers,
+            numberIdx: newNumberIdx,
+            operation: "",
+        })
+    }
     clearHandler(){}
-    equalHandler(){}
+    equalHandler(){
+        if(this.state.numbers[0] === "" || this.state.numbers[1] === ""){
+            return;
+        }
+        this.props.calculatorApi.calculate(
+            this.state.numbers[0],
+            this.state.numbers[1],
+            this.state.operation,
+            (result) => {this.setResult(result);
+            }
+        )
+    }
     render(){
         return(
             <div className="calculator-grid-container">
