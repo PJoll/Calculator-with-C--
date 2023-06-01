@@ -1,5 +1,6 @@
 import React from "react";
 import CalculatorButton from "./CalculatorButton";
+import CalculatorDisplay from "./CalculatorDisplay";
 
 function CalculatorPanel(props) {
   const captions = [
@@ -26,7 +27,12 @@ function CalculatorPanel(props) {
     return <CalculatorButton caption={value} />;
   });
 
-  return <div>{calc_buttons}</div>;
+  return(
+     <div className="calculator-grid-container">
+        <CalculatorDisplay/>    
+        {calc_buttons}
+        </div>
+  );
 }
 
 export default CalculatorPanel;
